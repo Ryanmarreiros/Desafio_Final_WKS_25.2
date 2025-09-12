@@ -1,0 +1,122 @@
+Modelo Conceitual (E-R):
+
+LINK DA PRINT DO MODELO CONCEITUAL FEITO NO BRMODELO:
+(https://prnt.sc/wYPjkJJbBc5U)
+
+Cliente
+PK: id_cliente
+nome
+cpf (UNIQUE)
+endereço
+telefone
+email (UNIQUE)
+data_cadastro
+
+Funcionário
+PK: id_funcionario
+nome
+cpf (UNIQUE)
+telefone
+email
+
+Veículo
+PK: id_veiculo
+placa (UNIQUE)
+modelo
+cor
+valor_diaria
+status (disponível, alugado, manutenção)
+
+Aluguel
+PK: id_aluguel
+FK1: id_cliente
+FK2: id_funcionario
+FK3: id_veiculo
+data_inicio
+data_fim
+valor_total
+status (ativo, finalizado, atrasado)
+
+Pagamento
+PK: id_pagamento
+FK: id_aluguel
+valor
+data_pagamento
+Manutenção
+PK: id_manutencao
+FK: id_veiculo
+
+Manutenção
+data_manutencao
+responsavel
+status (agendada, concluída)
+
+
+Cardinalidades
+
+Cliente (1,N) — realiza —> (N,1) Aluguel
+Funcionário (1,N) — registra —> (N,1) Aluguel
+Veículo (1,N) — vinculado —> (N,1) Aluguel
+Aluguel (1,1) — possui —> (1,1) Pagamento
+Veículo (1,N) — passa por —> (N,1) Manutenção
+
+SQL - Modelo Lógico:
+
+CREATE TABLE Cliente (
+    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    cpf CHAR(11) NOT NULL UNIQUE,
+    endereco VARCHAR(200),
+    telefone VARCHAR(20),
+    email VARCHAR(100) UNIQUE,
+    data_cadastro DATE NOT NULL
+);
+
+CREATE TABLE Funcionario (
+    id_funcionario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    cpf CHAR(11) NOT NULL UNIQUE,
+    telefone VARCHAR(20),
+    email VARCHAR(100) UNIQUE,
+);
+
+CREATE TABLE Veiculo (
+    id_veiculo INT PRIMARY KEY AUTO_INCREMENT,
+    placa VARCHAR(10) NOT NULL UNIQUE,
+    modelo VARCHAR(100) NOT NULL,
+    cor VARCHAR(50),
+    valor_diaria DECIMAL(10,2) NOT NULL,
+    status ENUM('disponível','alugado','manutenção') DEFAULT 'disponível'
+);
+
+CREATE TABLE Aluguel (
+    id_aluguel INT PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT NOT NULL,
+    id_funcionario INT NOT NULL,
+    id_veiculo INT NOT NULL,
+    data_inicio DATE NOT NULL,
+    data_fim DATE,
+    valor_total DECIMAL(10,2),
+    status ENUM('ativo','finalizado','atrasado') DEFAULT 'ativo',
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
+    FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_funcionario),
+    FOREIGN KEY (id_veiculo) REFERENCES Veiculo(id_veiculo)
+);
+
+CREATE TABLE Pagamento (
+    id_pagamento INT PRIMARY KEY AUTO_INCREMENT,
+    id_aluguel INT NOT NULL UNIQUE,
+    valor DECIMAL(10,2) NOT NULL,
+    data_pagamento DATE,
+    FOREIGN KEY (id_aluguel) REFERENCES Aluguel(id_aluguel)
+);
+
+CREATE TABLE Manutencao (
+    id_manutencao INT PRIMARY KEY AUTO_INCREMENT,
+    id_veiculo INT NOT NULL,
+    custo DECIMAL(10,2),
+    data_manutencao DATE NOT NULL,
+    responsavel VARCHAR(100),
+    status ENUM('agendada','concluída') DEFAULT 'agendada',
+    FOREIGN KEY (id_veiculo) REFERENCES Veiculo(id_veiculo)
+);
