@@ -21,6 +21,6 @@ Atualizações (UPDATE)
 
 Atualização de e-mail e idade de clientes:
 
-UPDATE Cliente SET Email='thiago@email.com', Idade=41 WHERE CPF='34567890122';
-UPDATE Cliente SET Email='camila@email.com', Idade=42 WHERE CPF='23456789011';
+UPDATE Cliente SET Email='thiago.novo@email.com', Idade=41 WHERE CPF='34567890122';
+UPDATE Cliente SET Email='camila.novo@email.com', Idade=42 WHERE CPF='23456789011';
 UPDATE Cliente SET Endereco='Av. Nova, 1234' WHERE CPF='12345678900';
