@@ -164,11 +164,11 @@ INNER JOIN Aluguel AS A
 ON C.CPF = A.fk_Cliente_CPF;
 
 UPDATE Cliente
-SET Email = 'thiago.atualizado@email.com', Idade = 41
+SET Email = 'thiago.novo@email.com', Idade = 41
 WHERE CPF = '34567890122';
 
 UPDATE Cliente
-SET Email = 'camila.atualizada@email.com', Idade = 42
+SET Email = 'camila.novo@email.com', Idade = 42
 WHERE CPF = '23456789011';
 
 SELECT * FROM Aluguel;
