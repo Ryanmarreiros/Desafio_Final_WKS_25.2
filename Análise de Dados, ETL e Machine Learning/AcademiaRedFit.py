@@ -12,12 +12,12 @@ except FileNotFoundError:
     print(" CSV não encontrado, criando base de exemplo...")
 
     df = pd.DataFrame({
-        "id_cliente": [1, 2, 3, 4, 5, 6],
+        "id_cliente": [1, 2, 3, 4, 5,6],
         "idade": [25, 32, 40, 28, 50, 22],
         "sexo": ["M", "F", "M", "F", "M", "F"],
-        "frequencia_treino": [3, 1, 5, 2, 6, 4],   # vezes por semana
+        "frequencia_treino": [3, 1, 5, 2, 6, 4],   
         "tipo_atividade": ["Musculação", "Yoga", "Crossfit", "Pilates", "Musculação", "Funcional"],
-        "tempo_exercicio": [45, 30, 60, 40, 70, 55],  # minutos
+        "tempo_exercicio": [45, 30, 60, 40, 70, 55],  
         "PGC_inicial": [25, 32, 28, 30, 35, 27],
         "PGC_atual": [20, 31, 22, 28, 30, 24],
         "plano": ["Mensal", "Trimestral", "Anual", "Mensal", "Anual", "Trimestral"],
