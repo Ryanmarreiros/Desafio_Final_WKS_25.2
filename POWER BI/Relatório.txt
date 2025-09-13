@@ -1,0 +1,21 @@
+Contagem de Período por Curso e Turno (Gráfico de Barras Superior Esquerdo)
+
+O curso Ciência da Computação tem o maior número de alunos, principalmente no turno da manhã (17 alunos).
+ADS possui alunos distribuídos entre manhã (3) e ambos os turnos (4).
+Os cursos Ciência de Dados, Redes, SPI e Engenharia de Software têm números menores, variando entre 1 e 3 alunos por turno.
+Observa-se que a maior concentração de alunos está em Ciência da Computação e ADS, especialmente no período da manhã.
+
+Contagem de Curso e Turno por Período (Gráfico de Pizza Superior Direito)
+
+Os períodos P1 até P3 e P4 até P6 têm a maior quantidade de alunos, 22 alunos cada (23,4%).
+Períodos P7 ou P8 possuem 9 alunos (9,57%) cada, e há 1 aluno em branco (1,06%).
+Conclusão: A maioria dos alunos está concentrada nos períodos iniciais e intermediários.
+
+Preferência de Estudo por Temperatura (Gráfico de Barras Inferior)
+
+Frio é a preferência majoritária, com mais de 20 alunos escolhendo estudar em ambiente frio.
+Ambiente neutro tem cerca de 14 alunos preferindo.
+Calor é o menos preferido, com 11 alunos.
+Conclusão: A maioria dos alunos prefere estudar em ambientes frios, seguido por ambiente neutro, e poucos preferem calor.
+
+Obrigado ! :)
